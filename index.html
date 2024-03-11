@@ -1,1 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
 
+        function getComputerChoice(){
+
+            const opciones = ["Rock" , "Paper" , "Scissors"];
+            const indiceAleatorio = Math.floor(Math.random()*opciones.length);
+            return opciones[indiceAleatorio];
+        }
+
+        const computerSelection = getComputerChoice();
+        console.log(computerSelection);
+
+        function playerSelection(){
+
+            let userSelection;
+
+            do{
+                userSelection = prompt("Choose Rock, Paper or Scissors").trim();
+                userSelection = userSelection.charAt(0).toUpperCase() + userSelection.slice(1).toLowerCase();
+            } while(!["Rock" , "Paper" , "Scissors"].includes(userSelection));
+
+            return userSelection;
+
+        }
+
+        const humanSelection = playerSelection();
+        console.log(humanSelection);
+
+        function playRound(playerSelection, getComputerChoice) {
+
+            
+
+             if (playerSelection === computerSelection){
+                 return "it's a Tie";
+               
+             }else if(playerSelection==="Paper" && computerSelection==="Rock"){
+                 return "You Win!";
+                
+             }else if(playerSelection==="Rock" && computerSelection==="Scissors"){
+                 return "You Win!";
+               
+             }else if(playerSelection==="Scissors" && computerSelection==="Paper"){
+                 return "You Win!";
+                
+             }else{
+
+                return "You Loose!";
+            }
+
+            
+
+            
+  
+
+        }
+            const printResult=playRound();
+
+           
+
+        console.log(playRound(playerSelection, computerSelection));
+
+           
+
+    </script>
+
+</body>
+</html>
